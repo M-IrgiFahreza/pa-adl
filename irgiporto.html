@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Irgi Fahreza - Creative Assistant Portfolio</title>
+    
+    <!-- 
+    TO ADD YOUR PHOTO:
+    1. Save your photo as "profile-photo.jpg" in the same folder as this HTML file
+    2. Uncomment the <img> line below and comment out the placeholder div
+    3. Or replace "profile-photo.jpg" with your actual photo filename
+    -->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #ffffff;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Elements */
+        .bg-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 70%;
+            animation-delay: 1s;
+        }
+
+        .shape:nth-child(5) {
+            width: 140px;
+            height: 140px;
+            top: 50%;
+            left: 5%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.8;
+            }
+        }
+
+        /* Geometric Patterns */
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 210, 164, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 184, 148, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(0, 210, 164, 0.2) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #00b894 0%, #00d2a4 50%, #26de81 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-img::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-placeholder {
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            line-height: 1.2;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 2px solid #00b894;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #00b894;
+            margin: 0 15px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 184, 148, 0.1), transparent);
+            transition: left 0.3s ease;
+        }
+
+        .nav a:hover::before {
+            left: 100%;
+        }
+
+        .nav a:hover {
+            background: linear-gradient(145deg, #00b894, #00d2a4);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.3);
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: 
+                linear-gradient(45deg, #f8f9fa 25%, transparent 25%),
+                linear-gradient(-45deg, #f8f9fa 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #f8f9fa 75%),
+                linear-gradient(-45deg, transparent 75%, #f8f9fa 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        .section:nth-child(even)::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 184, 148, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(0, 210, 164, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .section:nth-child(odd)::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at center, rgba(0, 184, 148, 0.02) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #00b894;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 
+                0 5px 20px rgba(0, 184, 148, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 184, 148, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px) rotateY(5deg);
+            border: 2px solid #00b894;
+            box-shadow: 
+                0 15px 40px rgba(0, 184, 148, 0.2),
+                0 5px 10px rgba(0, 184, 148, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00b894;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .stat-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Analytics Proof */
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .analytics-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .analytics-card:hover {
+            transform: translateY(-5px);
+            border-color: #00b894;
+        }
+
+        .analytics-img {
+            height: 300px;
+            background: linear-gradient(135deg, #00b894, #00d2a4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+        }
+
+        .analytics-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #00b894;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .analytics-content {
+            padding: 25px;
+        }
+
+        .analytics-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .analytics-desc {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .analytics-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(0, 184, 148, 0.1);
+            color: #00b894;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-img {
+            height: 200px;
+            background: linear-gradient(135deg, #00b894, #00d2a4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .portfolio-content {
+            padding: 25px;
+        }
+
+        .portfolio-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .portfolio-desc {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #333;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            border-color: #00b894;
+            color: #00b894;
+            transform: translateY(-3px);
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: #00b894;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .feature-content p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, #00b894 0%, #00d2a4 50%, #26de81 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px),
+                radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 50px 50px, 20px 20px;
+            animation: move 20s linear infinite;
+        }
+
+        @keyframes move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            background: white;
+            color: #00b894;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="bg-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="container header-content">
+            <div class="profile-img">
+                  <img src="irgi.jpg" alt="Muhammad Irgi Fahreza">
+            </div>
+            <h1>Muhammad Irgi Fahreza</h1>
+            <p class="subtitle">Creative Assistant • Content Creator • Trend Expert</p>
+            <div class="contact-info">
+                <a href="https://wa.me/6289603938181" target="_blank" class="contact-item">📱 089603938181</a>
+                <a href="mailto:irgifahreza4869@gmail.com" class="contact-item">📧 irgifahreza4869@gmail.com</a>
+                <a href="https://tiktok.com/@irgi.nz" target="_blank" class="contact-item">🎵 @irgi.nz</a>
+                <a href="https://linkedin.com/in/muhammad-irgi-fahreza" target="_blank" class="contact-item">💼 LinkedIn</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <a href="#stats">Analytics</a>
+            <a href="#proof">Proof</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#skills">Skills</a>
+            <a href="#why">Why Me</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Stats Section -->
+    <section id="stats" class="section">
+        <div class="container">
+            <h2 class="section-title">🔥 Real Performance Data</h2>
+            <p class="section-subtitle">Data analytics terbaru yang menunjukkan kemampuan menciptakan viral content dengan growth exponential</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">9.8M</div>
+                    <div class="stat-label">Video Views (28 hari)</div>
+                    <div class="stat-desc">+25,195% growth rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8.6M</div>
+                    <div class="stat-label">Highest Single Video</div>
+                    <div class="stat-desc">Peak viral performance</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">110.2K</div>
+                    <div class="stat-label">Total Likes</div>
+                    <div class="stat-desc">Organic engagement</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3,811</div>
+                    <div class="stat-label">Followers</div>
+                    <div class="stat-desc">Active community</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">65K</div>
+                    <div class="stat-label">Likes (28 hari)</div>
+                    <div class="stat-desc">+5,307% increase</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4,099</div>
+                    <div class="stat-label">Shares (28 hari)</div>
+                    <div class="stat-desc">+3,433% growth</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Proof Section -->
+    <section id="proof" class="section">
+        <div class="container">
+            <h2 class="section-title">📊 Analytics Screenshots</h2>
+            <p class="section-subtitle">Screenshot langsung dari TikTok Analytics sebagai bukti real performance dan kemampuan viral content creation</p>
+            
+            <div class="analytics-grid">
+                <div class="analytics-card">
+                    <div class="analytics-img">
+                        <div class="analytics-badge">📱 TikTok Analytics</div>
+                        <div>
+                            <div style="font-size: 1.5rem; margin-bottom: 10px;">📈 ANALYTICS DASHBOARD</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px;">
+                                <div style="font-size: 1.2rem; font-weight: bold;">9.8M Views</div>
+                                <div style="font-size: 0.9rem;">+25,195% Growth</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="analytics-content">
+                        <h3 class="analytics-title">TikTok Analytics Dashboard</h3>
+                        <p class="analytics-desc">Screenshot menunjukkan 9.8M tayangan dalam 28 hari dengan growth rate +25,195% - performa exponential yang luar biasa.</p>
+                        <div class="analytics-tags">
+                            <span class="tag">📊 9.8M Views</span>
+                            <span class="tag">📈 +25,195%</span>
+                            <span class="tag">💬 +742%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <div class="analytics-img">
+                        <div class="analytics-badge">📱 Profile Overview</div>
+                        <div>
+                            <div style="font-size: 1.5rem; margin-bottom: 10px;">🎵 CONTENT PORTFOLIO</div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 10px;">
+                                <div style="font-size: 1.2rem; font-weight: bold;">8.6M Peak Views</div>
+                                <div style="font-size: 0.9rem;">Single Video Record</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="analytics-content">
+                        <h3 class="analytics-title">Content Portfolio @irgi.nz</h3>
+                        <p class="analytics-desc">Profile overview menampilkan multiple viral content dengan peak 8.6M views dan consistent 100K+ performance.</p>
+                        <div class="analytics-tags">
+                            <span class="tag">🔥 8.6M Peak</span>
+                            <span class="tag">🎮 Gaming Content</span>
+                            <span class="tag">📱 3,811 Followers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 15px; margin-top: 30px;">
+                <h3 style="color: #00b894; text-align: center; margin-bottom: 20px;">💡 Key Performance Insights</h3>
+                <p style="text-align: center; color: #666; line-height: 1.6;">
+                    Analytics screenshots di atas adalah <strong>bukti nyata</strong> kemampuan saya dalam menciptakan viral content. 
+                    Data +25,195% growth rate dan 8.6M single video views bukan kebetulan - ini hasil dari deep understanding 
+                    algorithm, perfect timing, dan strategic content creation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title">🎬 Content Portfolio</h2>
+            <p class="section-subtitle">Showcase berbagai jenis konten viral yang telah berhasil mencapai millions of views dengan engagement rate tinggi</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-img">🎵 VIRAL GAMING CONTENT</div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">8.6M Views Achievement</h3>
+                        <p class="portfolio-desc">Viral gaming content yang mencapai 8.6 juta views dengan perfect timing, engaging thumbnail, dan storyline yang captivating untuk gaming community.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-img">📈 HIGH ENGAGEMENT SERIES</div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">Multiple 100K+ Videos</h3>
+                        <p class="portfolio-desc">Consistent performance dengan multiple videos 100K+ views (188K, 186K, 53K) menunjukkan repeatable success formula dan understanding algoritma.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-img">🔥 ALGORITHM MASTERY</div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">25,195% Growth Rate</h3>
+                        <p class="portfolio-desc">Exponential growth dalam 28 hari dengan deep understanding TikTok algorithm dan optimal posting strategy untuk maximum reach.</p>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-img">💬 COMMUNITY BUILDING</div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">High Engagement Rate</h3>
+                        <p class="portfolio-desc">Strong community dengan +742% comment growth dan +3,433% share rate - membuktikan content quality dan audience connection yang kuat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">💎 Creative Skills</h2>
+            <p class="section-subtitle">Kombinasi technical expertise dan creative abilities yang mendukung kesuksesan sebagai Creative Assistant</p>
+            
+            <div class="skills-grid">
+                <div class="skill-item">Video Editing Pro</div>
+                <div class="skill-item">Content Strategy</div>
+                <div class="skill-item">Trend Forecasting</div>
+                <div class="skill-item">Creative Direction</div>
+                <div class="skill-item">Mobile Cinematography</div>
+                <div class="skill-item">Social Analytics</div>
+                <div class="skill-item">Script Writing</div>
+                <div class="skill-item">Brand Storytelling</div>
+                <div class="skill-item">Engagement Optimization</div>
+                <div class="skill-item">Algorithm Understanding</div>
+                <div class="skill-item">Project Management</div>
+                <div class="skill-item">Team Collaboration</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Me Section -->
+    <section id="why" class="section">
+        <div class="container">
+            <h2 class="section-title">⚡ Why Choose Me?</h2>
+            <p class="section-subtitle">Keunggulan yang membuat saya perfect candidate untuk Creative Assistant position</p>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-content">
+                        <h3>Proven Viral Track Record</h3>
+                        <p>8.6M single video views dan +25,195% growth rate membuktikan kemampuan real dalam menciptakan viral content yang resonan dengan audience.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-content">
+                        <h3>Algorithm Expert</h3>
+                        <p>Deep understanding TikTok algorithm dengan hasil data-driven yang konsisten untuk optimization reach dan engagement maximum.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🤝</div>
+                    <div class="feature-content">
+                        <h3>Team Leadership Experience</h3>
+                        <p>Proven leadership sebagai ketua organisasi dengan excellent communication skills untuk mendukung tim creative dan collaboration.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-content">
+                        <h3>Fast Trend Adaptation</h3>
+                        <p>Always first-to-know trending content dengan adaptation speed 24 jam untuk memastikan content selalu ahead of the curve.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-content">
+                        <h3>Multi-Platform Understanding</h3>
+                        <p>Comprehensive knowledge berbagai social media platform dengan focus specialty di TikTok viral mechanics dan strategy.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">⏰</div>
+                    <div class="feature-content">
+                        <h3>Reliable & Consistent</h3>
+                        <p>Track record konsisten dalam delivering quality content dengan commitment tinggi terhadap deadline dan excellent results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="cta">
+                <h2>Ready to Create Viral Magic Together? ✨</h2>
+                <p>Mari berkolaborasi untuk menciptakan content yang tidak hanya viral, tapi juga meaningful dan memberikan impact positif. Dengan proven track record, creativity unlimited, dan dedication 100% untuk kesuksesan Anda!</p>
+                <a href="mailto:irgifahreza4869@gmail.com?subject=Creative Assistant Collaboration&body=Halo Irgi, saya tertarik untuk berkolaborasi dengan Anda sebagai Creative Assistant..." class="cta-button">Let's Start Collaboration!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Muhammad Irgi Fahreza. Ready to create amazing viral content together.</p>
+        </div>
+    </footer>
+</body>
+</html>
